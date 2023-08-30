@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+
+:root{
+    --cinza_escuro: #373435;
+    --laranja_contorno: #ed8d40;
+    --cor_de_fundo: #d9d9d9;
+}
+
+body{
+    background-color: var(--cor_de_fundo);
+    padding: 0;
+    margin: 0;
+    font-family: 'Exo+2';
+}
+
+body header img{
+    height: 3rem;
+}
+
+body header {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    margin-bottom: 2rem;
+}
+
+body header button{
+    cursor: pointer;
+    padding: 1rem;
+    height: 3rem;
+    border-radius: 0.5em;
+    border-style: none;
+    background-color: var(--cinza_escuro);
+    font-family: 'Exo 2';
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+}
+
+body header button span{
+    background-color: var(--laranja_contorno);
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+}
+
+body header button img{
+    height: 1.5rem;
+}
+
+body section{
+    display: flex;
+    justify-content: center;
+    gap: 15vh;
+}
+
+body section article{
+    background-color: white;
+    width:70vh;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    ali: center;
+    flex-direction: column;
+}
