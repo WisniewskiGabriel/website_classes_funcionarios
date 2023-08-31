@@ -41,6 +41,13 @@ body header button{
     justify-content: space-around;
     align-items: center;
     gap: 0.6rem;
+    transition: all .2s ease-in-out;
+
+}
+
+body header button:hover{
+    transform: scale(1.1);
+    transition: all .2s ease-in-out;
 }
 
 body header button div{
@@ -120,6 +127,13 @@ body section article{
     font-family: 'Exo 2';
     font-weight: 700;
     cursor: pointer;
+    transition: all .2s ease-in-out;    
+
+}
+
+.gerente-card nav button:hover{
+    transform: scale(1.02);
+    transition: all .2s ease-in-out;    
 }
 
 .gerente-card span{
