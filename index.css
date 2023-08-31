@@ -96,7 +96,7 @@ body section article{
     align-items: center;
     margin: 0.5rem;
     padding: 0.5rem;
-    gap: 0.7rem;
+    gap: 0.5rem;
     height: 1rem;
     background-color: white;
     border-radius: 0.6rem;
@@ -109,4 +109,36 @@ body section article{
     border-style: none;
     padding: 0.2rem 0.8rem 0.2rem 0.8rem ;
     font-family: 'Exo 2';
+    cursor: pointer;
+}
+
+
+.gerente-card span{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0;
+}
+
+.gerente-card span img{
+    height: 5rem;
+    margin: 0rem;
+    padding: 0rem;
+}
+
+.gerente-card span div{
+    margin: 0;
+    padding: 0;
+}
+
+.gerente-card span div span h3,p{
+    margin: 0.5rem;
+}
+
+.gerente-card span div span{
+    display: flex;
+    align-items: center;
+    font-family: 'Exo 2';
+    margin-left: 0.5rem;
 }
