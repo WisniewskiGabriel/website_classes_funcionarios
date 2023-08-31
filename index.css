@@ -5,6 +5,7 @@
     --laranja_contorno: #ed8d40;
     --cor_de_fundo: #d9d9d9;
     --verde_ativo: #94d9a3;
+    --vermelho_negativo: #eb4f44;
 }
 
 body{
@@ -132,8 +133,10 @@ body section article{
 }
 
 .gerente-card nav button:hover{
-    transform: scale(1.02);
-    transition: all .2s ease-in-out;    
+    transform: scale(1.06);
+    transition: all .2s ease-in-out;
+    background-color: var(--vermelho_negativo); 
+    color: white;
 }
 
 .gerente-card span{
