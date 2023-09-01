@@ -1,0 +1,25 @@
+{
+  "name": "website_classes_funcionarios",
+  "version": "1.0.0",
+  "description": "Atividade 14 de JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WisniewskiGabriel/website_classes_funcionarios.git"
+  },
+  "keywords": [
+    "descomplica"
+  ],
+  "author": "GW",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WisniewskiGabriel/website_classes_funcionarios/issues"
+  },
+  "homepage": "https://github.com/WisniewskiGabriel/website_classes_funcionarios#readme",
+  "devDependencies": {
+    "webpack": "^5.88.2"
+  }
+}
