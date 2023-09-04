@@ -1,36 +1,33 @@
 import { createNewCard } from './criar_novo_card.js';
-import { instanciarGerente,instanciarDesenvolvedor } from './classes/func_agregator.js';
+import { instanciarGerente, instanciarDesenvolvedor } from './classes/func_agregator.js';
+import { normalizeClasses } from './normalize_classes.js';
 
+let gtes_element = document.getElementById('gerente-wrapper');
+let devs_element = document.getElementById('devs-wrapper');
+let gte_add_btn = document.getElementById('add-gte');
+let dev_add_btn = document.getElementById('add-dev');
 
-let gerentes_element = document.getElementById('gerente-wrapper');
+gte_add_btn.addEventListener('click', criarGte);
+dev_add_btn.addEventListener('click', criarDev);
 
+function criarGte(){
 
-
-let objGte = instanciarGerente();
-console.log(objGte);
-
-objGte = normalizeClasses(objGte);
-console.log(objGte);
-
-let card = createNewCard(objGte);
-gerentes_element.innerHTML+=(card);
-
-function normalizeClasses(obj){
-
-    if(obj.hasOwnProperty('_linguagem')){
-
-
-    } else if(obj.hasOwnProperty('_departamento')){
-
-        obj._tipo = "Gerente";
-        obj._acao = obj._departamento;
-        delete obj._departamento;
-
-
-        obj._statusAcao = obj._gerenciando;
-        delete obj._gerenciando;
-
-    } return(obj)
-
+    let objGte;
+    let card;
+    
+    objGte = instanciarGerente();
+    objGte = normalizeClasses(objGte);
+    card = createNewCard(objGte);
+    gtes_element.innerHTML+=(card);
 }
 
+function criarDev(){
+
+    let objDev;
+    let card;
+    
+    objDev = instanciarDesenvolvedor();
+    objDev = normalizeClasses(objDev);
+    card = createNewCard(objDev);
+    devs_element.innerHTML+=(card);
+}

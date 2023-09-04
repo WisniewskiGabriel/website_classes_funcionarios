@@ -4,7 +4,7 @@ export class Desenvolvedor extends Funcionario{
     constructor(nome,idade,cargo,linguagem){
     super(nome,idade,cargo);
     this._linguagem = linguagem;
-    this._programando = false;
+    this._programando = true;
     }
 
     get linguagem(){
