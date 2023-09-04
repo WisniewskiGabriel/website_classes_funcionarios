@@ -1,11 +1,11 @@
 export function createNewCard(objFuncionario){
 
     let info_0_tipoFunc = objFuncionario.tipo;
-    let info_1_idade = objFuncionario.idade;
-    let info_2_statusTrabalhando = objFuncionario.statusFunc;
-    let info_3_statusAcao = objFuncionario.acao;
-    let info_4_nomeFunc = objFuncionario.nome;
-    let info_5_cargo = objFuncionario.cargo;
+        let info_1_idade = objFuncionario.idade;
+            let info_2_statusTrabalhando = objFuncionario.statusFunc;
+                let info_3_statusAcao = objFuncionario.acao;
+            let info_4_nomeFunc = objFuncionario.nome;
+        let info_5_cargo = objFuncionario.cargo;
     let info_6_atribuicao = objFuncionario.atribuicao;
 
     let card_template =
