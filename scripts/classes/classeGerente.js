@@ -4,7 +4,7 @@ export class Gerente extends Funcionario{
     constructor(nome,idade,cargo,departamento){
     super(nome,idade,cargo);
     this._departamento = departamento;
-    this._gerenciando = false;
+    this._gerenciando = true;
     }
 
     get departamento(){

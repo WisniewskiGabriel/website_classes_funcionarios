@@ -12,6 +12,8 @@ console.log(objGte);
 objGte = normalizeClasses(objGte);
 console.log(objGte);
 
+let card = createNewCard(objGte);
+gerentes_element.innerHTML+=(card);
 
 function normalizeClasses(obj){
 
@@ -31,11 +33,4 @@ function normalizeClasses(obj){
     } return(obj)
 
 }
-
-
-
-
-
-//let card = createNewCard(objGte);
-//gerentes_element.innerHTML+=(card);
 

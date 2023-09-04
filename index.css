@@ -169,7 +169,13 @@ body section article{
 
 .gerente-card span div span{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     font-family: 'Exo 2';
     margin-left: 1rem;
+    width: fit-content;
+    block-size: fit-content;
+    overflow-wrap: break-word;
+    padding-right: 1rem;
+
+
 }
