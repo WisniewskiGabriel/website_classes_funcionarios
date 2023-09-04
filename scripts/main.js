@@ -8,24 +8,28 @@ let gerentes_element = document.getElementById('gerente-wrapper');
 
 let objGte = instanciarGerente();
 console.log(objGte);
-let objDev = instanciarDesenvolvedor();
-console.log(objDev);
 
+objGte = normalizeClasses(objGte);
+console.log(objGte);
 
 
 function normalizeClasses(obj){
 
-    if(obj.hasOwnProperty(_linguagem)){
-        obj[_linguagem] = obj[_acao];        
-    }else if(obj.hasOwnProperty(_departamento)){
-        obj[_linguagem] = obj[_acao];        
-    }
+    if(obj.hasOwnProperty('_linguagem')){
 
-    if(obj.hasOwnProperty(_programando)){
-        obj[_programando] = obj[_statusAcao];
-    } else if (obj.hasOwnProperty(_gerenciando)){
-        obj[_gerenciando] = obj[_statusAcao];
-    }
+
+    } else if(obj.hasOwnProperty('_departamento')){
+
+        obj._tipo = "Gerente";
+        obj._acao = obj._departamento;
+        delete obj._departamento;
+
+
+        obj._statusAcao = obj._gerenciando;
+        delete obj._gerenciando;
+
+    } return(obj)
+
 }
 
 
