@@ -2,7 +2,7 @@ export function normalizeClasses(obj){
 
     if(obj.hasOwnProperty('_linguagem')){
         
-        obj._tipo = "Desenvovedor";
+        obj._tipo = "Desenvolvedor";
         obj._acao = obj._linguagem;
         delete obj._linguagem;
 
