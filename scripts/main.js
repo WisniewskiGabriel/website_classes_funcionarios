@@ -6,9 +6,17 @@ let gtes_element = document.getElementById('gerente-wrapper');
 let devs_element = document.getElementById('devs-wrapper');
 let gte_add_btn = document.getElementById('add-gte');
 let dev_add_btn = document.getElementById('add-dev');
+let workers_element = document.getElementById('workers-wrapper');
+
 
 gte_add_btn.addEventListener('click', criarGte);
 dev_add_btn.addEventListener('click', criarDev);
+workers_element.addEventListener('click', (event) => {
+    if(event.target.className === 'demitir-btn') {
+        document.getElementById(event.target.value).remove()
+    }
+  })
+
 
 function criarGte(){
 

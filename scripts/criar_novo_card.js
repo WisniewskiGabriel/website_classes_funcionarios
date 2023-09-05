@@ -11,6 +11,7 @@ export function createNewCard(objFuncionario){
 
     let str_acao_label = ""
     let str_icon = "";
+    let timestamp = Date.now();
     
     if(info_0_tipo === "Gerente"){
         str_icon = "boss";
@@ -20,18 +21,22 @@ export function createNewCard(objFuncionario){
         str_acao_label = "Linguagem"
     }
 
+    if(info_2_statusAcao === true){
+        info_3_trabalhando = "Trabalhando";
+    }
+
 
 
     let card_template =
         
-        "<div class='gerente-card'><nav><h3>"                                                           +info_0_tipo+
-        "</h3><p>|</p><h4>"                                                                             +info_1_idade+
-        "</h4><p>|</p><button>"                                                                         +info_2_statusAcao+
-        "</button><p>|</p><button>"                                                                     +info_3_trabalhando+
-        "</button></nav><span><img src='imgs/"+str_icon+".png' alt=''><div><span><h3>Nome:</h3><p>"     +info_4_nome+
-        "</p></span><span><h3>Cargo:</h3><p>"                                                           +info_5_cargo+
-        "</p></span><span><h3>"+str_acao_label+":</h3><p>"                                              +info_6_acao+
-        "</p></span></div></span></div>";
+        `<div class='gerente-card' id='${timestamp}'><nav><h3>                                                  ${info_0_tipo}
+        </h3><p>|</p><h4>                                                                                       ${info_1_idade}
+        </h4><p>|</p><button>                                                                                   ${info_2_statusAcao}
+        </button><p>|</p><button class='demitir-btn' value='${timestamp}'>                                      ${info_3_trabalhando}
+        </button></nav><span><img src='imgs/${str_icon}.png' alt=''><div><span><h3>Nome:</h3><p>                ${info_4_nome}
+        </p></span><span><h3>Cargo:</h3><p>                                                                     ${info_5_cargo}
+        </p></span><span><h3>${str_acao_label}:</h3><p>                                                         ${info_6_acao}
+        </p></span></div></span></div>`;
 
     return card_template;
 }
