@@ -29,14 +29,14 @@ workers_element.addEventListener('click', (event) => {
 
     let aviso_zero = "<h1 id='aviso-zero-funcionarios'>Nenhum funcionário adicionado</h1>";
     let elemento_aviso = document.getElementById('aviso-zero-funcionarios');
-    let qtd_cards = cards_element.childElementCount;
+    let qtd_cards = document.querySelectorAll('.gerente-card').length;
     console.log(qtd_cards);
     console.log(elemento_aviso);
 
     if(!elemento_aviso !== null && qtd_cards == 0){
         console.log("if");
         cards_element.innerHTML = aviso_zero;
-    } else if(elemento_aviso !== null && qtd_cards>=1){
+    } else if(elemento_aviso !== null && qtd_cards>0){
         console.log("else if");
         elemento_aviso.remove();
     }else{
