@@ -31,8 +31,7 @@ export function createNewCard(objFuncionario){
         
         `<div class='gerente-card' id='${timestamp}'><nav><h3>                                                  ${info_0_tipo}
         </h3><p>|</p><h4>                                                                                       ${info_1_idade}
-        </h4><p>|</p><button>                                                                                   ${info_2_statusAcao}
-        </button><p>|</p><button class='demitir-btn' value='${timestamp}'>                                      ${info_3_trabalhando}
+        </h4><p>|</p><button class='demitir-btn' value='${timestamp}'>                                          ${info_3_trabalhando}
         </button></nav><span><img src='imgs/${str_icon}.png' alt=''><div><span><h3>Nome:</h3><p>                ${info_4_nome}
         </p></span><span><h3>Cargo:</h3><p>                                                                     ${info_5_cargo}
         </p></span><span><h3>${str_acao_label}:</h3><p>                                                         ${info_6_acao}
