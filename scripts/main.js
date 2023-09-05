@@ -11,6 +11,16 @@ let workers_element = document.getElementById('workers-wrapper');
 
 gte_add_btn.addEventListener('click', criarGte);
 dev_add_btn.addEventListener('click', criarDev);
+workers_element.addEventListener('mouseover', (event) => {
+    if(event.target.className === 'demitir-btn') {
+        event.target.innerHTML = "Demitir?";
+    }
+  })
+  workers_element.addEventListener('mouseout', (event) => {
+    if(event.target.className === 'demitir-btn') {
+        event.target.innerHTML = "Trabalhando";
+    }
+  })
 workers_element.addEventListener('click', (event) => {
     if(event.target.className === 'demitir-btn') {
         document.getElementById(event.target.value).remove()
