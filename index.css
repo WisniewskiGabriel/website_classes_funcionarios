@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 :root{
     --cinza_escuro: #373435;
     --laranja_contorno: #ed8d40;
@@ -7,18 +6,15 @@
     --verde_ativo: #94d9a3;
     --vermelho_negativo: #eb4f44;
 }
-
 body{
     background-color: var(--cor_de_fundo);
     padding: 0;
     margin: 0;
     font-family: 'Exo+2';
 }
-
 body header img{
     height: 3rem;
 }
-
 body header {
     margin-top: 1rem;
     display: flex;
@@ -27,7 +23,6 @@ body header {
     gap: 5rem;
     margin-bottom: 0rem;
 }
-
 body header button{
     cursor: pointer;
     padding: 0.4rem;
@@ -43,14 +38,11 @@ body header button{
     align-items: center;
     gap: 0.6rem;
     transition: all .2s ease-in-out;
-
 }
-
 body header button:hover{
     transform: scale(1.1);
     transition: all .2s ease-in-out;
 }
-
 body header button div{
     background-color: var(--laranja_contorno);
     padding: 0.2rem;
@@ -62,18 +54,15 @@ body header button div{
     align-items: center;
     justify-content: center;
 }
-
 body header button div img{
     height: 0.8rem;
     margin: 0;
 }
-
 body section{
     display: flex;
     justify-content: center;
     gap: 5vh;
 }
-
 body section article{
     background-color: white;
     width:38rem;
@@ -85,7 +74,6 @@ body section article{
     flex-direction: column;
     gap: 1rem;
 }
-
 .gerente-card{
     display: flex;
     flex-direction: column;
@@ -97,7 +85,6 @@ body section article{
     width: 38.5rem;
     border-radius: 0.6rem;
 }
-
 .gerente-card nav{
     width: 27.5rem;
     display: flex;
@@ -111,15 +98,12 @@ body section article{
     border-radius: 0.6rem;
     font-family: 'Exo 2';
 }
-
 .gerente-card nav h3{
     font-weight: 800;
 }
-
 .gerente-card nav h4{
     font-weight: 400;
 }
-
 .gerente-card nav button{
     background-color: var(--verde_ativo);
     border-radius: 0.4rem;
@@ -129,16 +113,13 @@ body section article{
     font-weight: 700;
     cursor: pointer;
     transition: all .2s ease-in-out;    
-
 }
-
 .gerente-card nav button:hover{
     transform: scale(1.06);
     transition: all .2s ease-in-out;
     background-color: var(--vermelho_negativo); 
     color: white;
 }
-
 .gerente-card span{
     display: flex;
     align-items: center;
@@ -146,27 +127,22 @@ body section article{
     width: 100%;
     margin-left: 3rem;
 }
-
 .gerente-card span img{
     height: 5rem;
     margin: 0rem;
     padding: 0rem;
 }
-
 .gerente-card span div{
     margin: 0;
     padding: 0.3rem;
 }
-
 .gerente-card span div span h3,p{
     margin: 0.3rem;
 }
-
 .gerente-card span div span h3{
     font-family: 'Exo 2';
     font-weight: 800;
 }
-
 .gerente-card span div span{
     display: flex;
     align-items: flex-start;
@@ -177,11 +153,9 @@ body section article{
     overflow-wrap: break-word;
     padding-right: 1rem;
 }
-
 .demitir-btn{
     width: 8rem;
 }
-
 #aviso-zero-funcionarios{
     margin: 0;
     padding: 0;

@@ -1,21 +1,15 @@
 import { getRandomAge,getRandomDepartment,getRandomJob,getRandomName,getRandomLanguage,isNullOrEmpty } from './randomAssets.js';
 import { Gerente } from './classeGerente.js';
 import { Desenvolvedor } from './classeDesenvolvedor.js';
-
 lineAcross();
-
 //console.log("\nIniciando classe: Gerente\n");                                           //chamar funções relacionadas ao gerente
 let objGerente = instanciarGerente();                                                   //argumentos vazios para forçar geração de 
 displayGerente(objGerente,true,true);
-
 lineAcross();
-
 //console.log("\n\nIniciando classe: Desenvolvedor\n");                                   //chamar funções relacionadas ao desenvolvedor
 let objDesenvolvedor = instanciarDesenvolvedor();
 displayDesenvolver(objDesenvolvedor,true,true);
-
 lineAcross();
-
 export function instanciarGerente(nome,idade,cargo,departamento){                             //função que inicia o objeto do gerente
     if(isNullOrEmpty(nome)){                                                 //checa se o arg. está vazio
         nome = getRandomName();                                              //chamada da função para gera nome aleatório
@@ -32,7 +26,6 @@ export function instanciarGerente(nome,idade,cargo,departamento){               
     let objGerente = new Gerente(nome,idade,cargo,departamento);                        //obj. finalmente instanciado
     return objGerente;
 }
-
 export function instanciarDesenvolvedor(nome,idade,cargo,linguagem){                           //mesma lógica do instanciarGerente
     if(isNullOrEmpty(nome)){
         nome = getRandomName();
@@ -72,27 +65,21 @@ function displayDesenvolver(objDesenvolvedor,bool_trabalhar,bool_programar){    
     concatValores(objDesenvolvedor);
     lineAcross();
     objDesenvolvedor.seApresentar();
-
 }
 
 function concatValores(obj){    	                                                    //itera as propriedade de um obj. qualquer...
                                                                                         //... remove o caractere '_' do início...
     let str_saida = "";                                                                 //... e capitaliza a primeira letra
     let idx = 0;
-
     for (let prop in obj){
-
         let str_thisVal = obj[prop];                                                    //valor da propriedade atribuido a 'str_thisVal'
-
         let str_thisProp = prop.replace(/_/g,'');                                       //expressão regular para remover o '_' (underline)...
                                                                                         //... ex: "_nome" -> "Nome"
         str_thisProp = str_thisProp.charAt(0).toUpperCase()+                            //primeiro caractere para maiúsculo e concatena...
         str_thisProp.slice(1);                                                          //... o restante da string a partir da posição 1
-
         str_saida+=                                                                     //concatenar a string maior
         (idx>0?", ":"")+                                                                //if ternário para não adicionar ', ' a primeira...
         str_thisProp+": "+str_thisVal;                                                  //... posição do indíce
-
         idx++;                                                                          //incrementar o contador
     }
     //console.log(str_saida);                                                             //log apenas da string completa.
