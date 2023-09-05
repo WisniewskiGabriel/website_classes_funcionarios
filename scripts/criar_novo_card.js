@@ -25,6 +25,12 @@ export function createNewCard(objFuncionario){
         info_3_trabalhando = "Trabalhando";
     }
 
+    if(Number(info_1_idade) === 1){
+        info_1_idade = info_1_idade +" ano";
+    } else {
+        info_1_idade = info_1_idade +" anos";
+    }
+
 
 
     let card_template =
