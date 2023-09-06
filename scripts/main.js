@@ -1,6 +1,7 @@
 import { createNewCard } from './criar_novo_card.js';
 import { instanciarGerente, instanciarDesenvolvedor } from './classes/func_agregator.js';
 import { normalizeClasses } from './normalize_classes.js';
+import { criar_modal } from './criar_modal.js';
 
 let cards_element = document.getElementById('gerente_and_devs-wrapper');
 let gte_add_btn = document.getElementById('add-gte');
