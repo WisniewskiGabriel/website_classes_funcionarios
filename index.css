@@ -10,7 +10,7 @@ body{
     background-color: var(--cor_de_fundo);
     padding: 0;
     margin: 0;
-    font-family: 'Exo+2';
+    font-family: 'Exo 2';
 }
 body header img{
     height: 3rem;
@@ -86,7 +86,7 @@ body section article{
     border-radius: 0.6rem;
 }
 .gerente-card nav{
-    width: 27.5rem;
+    width: 36rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -125,7 +125,7 @@ body section article{
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    margin-left: 3rem;
+    margin-left: 5rem;
 }
 .gerente-card span img{
     height: 5rem;
@@ -160,4 +160,60 @@ body section article{
     margin: 0;
     padding: 0;
     font-family: 'Exo 2';
+}
+
+dialog{
+    flex-direction: column;
+    align-items: center;
+    border-style: none;
+    border-radius: 1rem;
+    -webkit-box-shadow: 0px 0px 25px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 25px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 25px -4px rgba(0,0,0,0.75);
+}
+
+dialog button{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 1rem;
+    border-style: none;
+    background-color: var(--laranja_contorno);
+    color: white;
+    font-family: 'Exo 2';
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+
+}
+
+dialog button:hover{
+    transform: scale(1.06);
+    transition: all .2s ease-in-out;
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+     footer {
+    display: flex;
+    gap: 1rem;
+}
+
+dialog form input{
+    margin-left: 1rem;
+}
+
+#btn-cancelar-acao{
+    background-color: var(--vermelho_negativo);
+}
+
+#btn-continuar-acao{
+    background-color: var(--verde_ativo);
+    color: black;
 }

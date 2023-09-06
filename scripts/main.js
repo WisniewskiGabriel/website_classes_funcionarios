@@ -7,9 +7,27 @@ let gte_add_btn = document.getElementById('add-gte');
 let dev_add_btn = document.getElementById('add-dev');
 let workers_element = document.getElementById('workers-wrapper');
 let body_element = document.getElementById('body');
+let modal_element = document.getElementById('modal');
+let btn_fechar_modal = document.getElementById('btn-cancelar-acao');
+let btn_gerar_aleatorio = document.getElementById('gerar-aleatorio');
 
-gte_add_btn.addEventListener('click', criarGte);
-dev_add_btn.addEventListener('click', criarDev);
+//gte_add_btn.addEventListener('click', criarGte);
+//dev_add_btn.addEventListener('click', criarDev);
+
+gte_add_btn.addEventListener('click', (event) => {
+  modal_element.showModal();
+  btn_gerar_aleatorio.addEventListener('click', criarGte);
+});
+
+dev_add_btn.addEventListener('click', (event) => {
+  modal_element.showModal();
+  //btn_gerar_aleatorio.addEventListener('click', criarDev);
+});
+
+btn_fechar_modal.addEventListener('click', (event) => {
+  modal_element.close();
+});
+
 workers_element.addEventListener('mouseover', (event) => {
     if(event.target.className === 'demitir-btn') {
         event.target.innerText = "Demitir?";
