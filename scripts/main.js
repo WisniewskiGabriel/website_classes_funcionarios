@@ -11,36 +11,33 @@ let modal_element = document.getElementById('modal');
 let btn_fechar_modal = document.getElementById('btn-cancelar-acao');
 let btn_aleatorio_wrapper = document.getElementById('aleatorio-wrapper');
 let titulo_cargo_element = document.getElementById('titulo-cargo');
+let atributo_especifico_element = document.getElementById('atributo-especifico');
 
 
 gte_add_btn.addEventListener('click', (event) => {
   
-  console.log(btn_aleatorio_wrapper);
-
   let str_cargo = "Gerente";
   let element_gte_aleatorio = "<button id='gerar-gte-aleatorio'>Gerar gerente aleatoriamente!</button>";
   btn_aleatorio_wrapper.innerHTML = element_gte_aleatorio;
 
   titulo_cargo_element.innerText = "Cadastrar "+str_cargo;
+  atributo_especifico_element.innerText = "Departamento:";
   modal_element.showModal();
   let btn_gerar_gte_aleatorio = document.getElementById('gerar-gte-aleatorio');
-  console.log(btn_gerar_gte_aleatorio);
   btn_gerar_gte_aleatorio.addEventListener('click', criarGte);
 
 });
 
 dev_add_btn.addEventListener('click', (event) => {
   
-  console.log(btn_aleatorio_wrapper);
-
   let str_cargo = "Desenvolvedor";
   let element_dev_aleatorio = "<button id='gerar-dev-aleatorio'>Gerar desenvolvedor aleatoriamente!</button>";
   btn_aleatorio_wrapper.innerHTML = element_dev_aleatorio;
 
   titulo_cargo_element.innerText = "Cadastrar "+str_cargo;
+  atributo_especifico_element.innerText = "Linguagem:";
   modal_element.showModal();
   let btn_gerar_dev_aleatorio = document.getElementById('gerar-dev-aleatorio');
-  console.log(btn_gerar_dev_aleatorio);
   btn_gerar_dev_aleatorio.addEventListener('click', criarDev);
 });
 
