@@ -28,8 +28,7 @@ export function createNewCard(objFuncionario){
         info_1_idade = info_1_idade +" anos";
     }
     let card_template =
-        
-        `<div class='gerente-card' id='${timestamp}'><nav><h3>                                                  ${info_0_tipo}
+        `<div class='worker-card' id='${timestamp}'><nav><h3>                                                  ${info_0_tipo}
         </h3><p>|</p><h4>                                                                                       ${info_1_idade}
         </h4><p>|</p><button class='demitir-btn' value='${timestamp}'>                                          ${info_3_trabalhando}
         </button></nav><span><img src='imgs/${str_icon}.png' alt=''><div><span><h3>Nome:</h3><p>                ${info_4_nome}

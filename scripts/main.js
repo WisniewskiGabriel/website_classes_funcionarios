@@ -1,7 +1,6 @@
 import { createNewCard } from './criar_novo_card.js';
 import { instanciarGerente, instanciarDesenvolvedor } from './classes/func_agregator.js';
 import { normalizeClasses } from './normalize_classes.js';
-import { criar_modal } from './criar_modal.js';
 
 let cards_element = document.getElementById('gerente_and_devs-wrapper');
 let gte_add_btn = document.getElementById('add-gte');
@@ -10,23 +9,43 @@ let workers_element = document.getElementById('workers-wrapper');
 let body_element = document.getElementById('body');
 let modal_element = document.getElementById('modal');
 let btn_fechar_modal = document.getElementById('btn-cancelar-acao');
-let btn_gerar_aleatorio = document.getElementById('gerar-aleatorio');
+let btn_aleatorio_wrapper = document.getElementById('aleatorio-wrapper');
+let titulo_cargo_element = document.getElementById('titulo-cargo');
 
-//gte_add_btn.addEventListener('click', criarGte);
-//dev_add_btn.addEventListener('click', criarDev);
 
 gte_add_btn.addEventListener('click', (event) => {
+  
+  console.log(btn_aleatorio_wrapper);
+
+  let str_cargo = "Gerente";
+  let element_gte_aleatorio = "<button id='gerar-gte-aleatorio'>Gerar gerente aleatoriamente!</button>";
+  btn_aleatorio_wrapper.innerHTML = element_gte_aleatorio;
+
+  titulo_cargo_element.innerText = "Cadastrar "+str_cargo;
   modal_element.showModal();
-  btn_gerar_aleatorio.addEventListener('click', criarGte);
+  let btn_gerar_gte_aleatorio = document.getElementById('gerar-gte-aleatorio');
+  console.log(btn_gerar_gte_aleatorio);
+  btn_gerar_gte_aleatorio.addEventListener('click', criarGte);
+
 });
 
 dev_add_btn.addEventListener('click', (event) => {
+  
+  console.log(btn_aleatorio_wrapper);
+
+  let str_cargo = "Desenvolvedor";
+  let element_dev_aleatorio = "<button id='gerar-dev-aleatorio'>Gerar desenvolvedor aleatoriamente!</button>";
+  btn_aleatorio_wrapper.innerHTML = element_dev_aleatorio;
+
+  titulo_cargo_element.innerText = "Cadastrar "+str_cargo;
   modal_element.showModal();
-  //btn_gerar_aleatorio.addEventListener('click', criarDev);
+  let btn_gerar_dev_aleatorio = document.getElementById('gerar-dev-aleatorio');
+  console.log(btn_gerar_dev_aleatorio);
+  btn_gerar_dev_aleatorio.addEventListener('click', criarDev);
 });
 
 btn_fechar_modal.addEventListener('click', (event) => {
-  modal_element.close();
+  fecharModal();
 });
 
 workers_element.addEventListener('mouseover', (event) => {
@@ -47,7 +66,7 @@ workers_element.addEventListener('click', (event) => {
   body_element.addEventListener('click', (event) => {
     let aviso_zero = "<h1 id='aviso-zero-funcionarios'>Nenhum funcionário adicionado</h1>";
     let elemento_aviso = document.getElementById('aviso-zero-funcionarios');
-    let qtd_cards = document.querySelectorAll('.gerente-card').length;
+    let qtd_cards = document.querySelectorAll('.worker-card').length;
     if(!elemento_aviso !== null && qtd_cards == 0){
         cards_element.innerHTML = aviso_zero;
     } else if(elemento_aviso !== null && qtd_cards>0){
@@ -64,6 +83,8 @@ function criarGte(){
     objGte = normalizeClasses(objGte);
     card = createNewCard(objGte);
     cards_element.innerHTML+=(card);
+    fecharModal();
+    card = "";
 }
 
 function criarDev(){
@@ -74,4 +95,11 @@ function criarDev(){
     objDev = normalizeClasses(objDev);
     card = createNewCard(objDev);
     cards_element.innerHTML+=(card);
+    fecharModal();
+    card = "";
+
+}
+
+function fecharModal(){
+  modal_element.close();
 }
