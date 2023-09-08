@@ -28,33 +28,63 @@ btn_continuar_acao.addEventListener('click', () => {
   
   let str_tipo = titulo_cargo_element.innerText;
   let nome_input_atributo;
+  let isGerente = false;
+  let isDev = false;
 
   if(str_tipo.includes("Gerente")){
-    criarGte(str_nome,str_idade,str_cargo,str_atributo_func);
+    isGerente = true;
     nome_input_atributo = "Departamento";
   }
 
   if(str_tipo.includes("Desenvolvedor")){
-    criarDev(str_nome,str_idade,str_cargo,str_atributo_func);
+    isDev = true;
     nome_input_atributo = "Linguagem";
 
   }
 
   let obj_strOfInputs = {'Nome':str_nome,'Idade':str_idade,'Cargo':str_cargo,nome_input_atributo:str_atributo_func};
-  let str_erros = "";
+  let array_empty_fields = [];
 
   Object.entries(obj_strOfInputs).forEach(([key, value]) => {
     if(!value.length > 0){
-      str_erros += key+" estava vazio, portanto será gerado aleatoriamente\n";
+      array_empty_fields.push(key);
     }
   });
+  
+  let deuErro = false;
 
-  console.log(str_erros);
+  try{
 
-  input_nome.value = "";
-  input_idade.value = "";
-  input_cargo.value = "";
-  input_atributo_func.value = "";
+    if(array_empty_fields.length > 0){
+      throw new Error("existem campos vazios");
+    }
+
+    if(isGerente){
+      criarGte(str_nome,str_idade,str_cargo,str_atributo_func);      
+    } else if(isDev){
+      criarDev(str_nome,str_idade,str_cargo,str_atributo_func);
+    }
+  } catch {
+    deuErro = true;
+    useError("Preencha todos os campos.");
+    let array_fields = document.querySelectorAll("input");
+
+    array_fields.forEach((input) => {
+      if(!input.value.length > 0){
+        input.style.borderColor = '#eb4f44';
+        input.style.borderWidth = '0.2rem';
+      } else {
+        input.style.borderColor = 'black';
+        input.style.borderWidth = '0.1rem';
+      }
+    });
+  } finally {
+    if (!deuErro){
+      emptyFields();
+      emptyError();
+    }
+  }
+
 })
 
 gte_add_btn.addEventListener('click', (event) => {
@@ -66,6 +96,7 @@ gte_add_btn.addEventListener('click', (event) => {
   titulo_cargo_element.innerText = "Cadastrar "+str_cargo;
   atributo_especifico_element.innerText = "Departamento:";
   modal_element.showModal();
+  
   let btn_gerar_gte_aleatorio = document.getElementById('gerar-gte-aleatorio');
   btn_gerar_gte_aleatorio.addEventListener('click', criarGteRandom);
 
@@ -149,6 +180,8 @@ function criarGteRandom(){
     cards_element.innerHTML+=(card);
     fecharModal();
     card = "";
+    emptyFields();
+    emptyError();
 }
 
 function criarDevRandom(){
@@ -161,8 +194,44 @@ function criarDevRandom(){
     cards_element.innerHTML+=(card);
     fecharModal();
     card = "";
+    emptyFields();
+    emptyError();
 }
 
 function fecharModal(){
   modal_element.close();
+}
+
+function emptyFields(){
+  document.getElementById('val_nome_func').value = "";
+  document.getElementById('val_nome_func').style.borderColor = 'black';
+  document.getElementById('val_nome_func').style.borderWidth = '0.1rem';
+
+
+  document.getElementById('val_idade_func').value = "";
+  document.getElementById('val_idade_func').style.borderColor = 'black';
+  document.getElementById('val_idade_func').style.borderWidth = '0.1rem';
+
+
+  document.getElementById('val_cargo_func').value = "";
+  document.getElementById('val_cargo_func').style.borderColor = 'black';
+  document.getElementById('val_cargo_func').style.borderWidth = '0.1rem';
+
+
+  document.getElementById('val_atributo_func').value = "";
+  document.getElementById('val_atributo_func').style.borderColor = 'black';
+  document.getElementById('val_atributo_func').style.borderWidth = '0.1rem';
+
+}
+
+function emptyError(){
+  let elemento = document.getElementById('error-msg');
+  elemento.innerText = "Ou inserir dados manualmente";
+  elemento.style.color = 'black';
+}
+
+function useError(str){
+  let elemento = document.getElementById('error-msg');
+  elemento.innerText = str;
+  elemento.style.color = '#eb4f44';
 }

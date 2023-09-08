@@ -31,7 +31,7 @@
             <span id="aleatorio-wrapper">
             </span>
             <form action="scripts/main.js" method="post">
-                <h3>Ou inserir dados manualmente</h3>
+                <h3 id="error-msg"></h3>
                 <label for="nome_func"><p>Nome:</p>
                     <input type="text" name="nome_func" id="val_nome_func">
                 </label>
@@ -46,6 +46,7 @@
                     <input type="text" name="atributo_func" id="val_atributo_func">
                 </label>
             </form>
+            
             <footer>
                 <button id="btn-cancelar-acao">
                     Cancelar
@@ -55,8 +56,8 @@
                 </button>
             </footer>
         </dialog>
+        
     </section>
-    
 </body>
 <script type="module" src="scripts/main.js"></script>
 <script type="module" src="scripts/normalize_classes.js"></script>
