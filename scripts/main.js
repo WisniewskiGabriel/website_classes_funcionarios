@@ -9,10 +9,53 @@ let workers_element = document.getElementById('workers-wrapper');
 let body_element = document.getElementById('body');
 let modal_element = document.getElementById('modal');
 let btn_fechar_modal = document.getElementById('btn-cancelar-acao');
+let btn_continuar_acao = document.getElementById('btn-continuar-acao');
 let btn_aleatorio_wrapper = document.getElementById('aleatorio-wrapper');
 let titulo_cargo_element = document.getElementById('titulo-cargo');
 let atributo_especifico_element = document.getElementById('atributo-especifico');
 
+btn_continuar_acao.addEventListener('click', () => {
+
+  let input_nome = document.getElementById('val_nome_func');
+  let input_idade = document.getElementById('val_idade_func');
+  let input_cargo = document.getElementById('val_cargo_func');
+  let input_atributo_func = document.getElementById('val_atributo_func');
+
+  let str_nome = input_nome.value;
+  let str_idade = input_idade.value;
+  let str_cargo = input_cargo.value;
+  let str_atributo_func = input_atributo_func.value;
+  
+  let str_tipo = titulo_cargo_element.innerText;
+  let nome_input_atributo;
+
+  if(str_tipo.includes("Gerente")){
+    criarGte(str_nome,str_idade,str_cargo,str_atributo_func);
+    nome_input_atributo = "Departamento";
+  }
+
+  if(str_tipo.includes("Desenvolvedor")){
+    criarDev(str_nome,str_idade,str_cargo,str_atributo_func);
+    nome_input_atributo = "Linguagem";
+
+  }
+
+  let obj_strOfInputs = {'Nome':str_nome,'Idade':str_idade,'Cargo':str_cargo,nome_input_atributo:str_atributo_func};
+  let str_erros = "";
+
+  Object.entries(obj_strOfInputs).forEach(([key, value]) => {
+    if(!value.length > 0){
+      str_erros += key+" estava vazio, portanto será gerado aleatoriamente\n";
+    }
+  });
+
+  console.log(str_erros);
+
+  input_nome.value = "";
+  input_idade.value = "";
+  input_cargo.value = "";
+  input_atributo_func.value = "";
+})
 
 gte_add_btn.addEventListener('click', (event) => {
   
@@ -24,7 +67,7 @@ gte_add_btn.addEventListener('click', (event) => {
   atributo_especifico_element.innerText = "Departamento:";
   modal_element.showModal();
   let btn_gerar_gte_aleatorio = document.getElementById('gerar-gte-aleatorio');
-  btn_gerar_gte_aleatorio.addEventListener('click', criarGte);
+  btn_gerar_gte_aleatorio.addEventListener('click', criarGteRandom);
 
 });
 
@@ -38,7 +81,7 @@ dev_add_btn.addEventListener('click', (event) => {
   atributo_especifico_element.innerText = "Linguagem:";
   modal_element.showModal();
   let btn_gerar_dev_aleatorio = document.getElementById('gerar-dev-aleatorio');
-  btn_gerar_dev_aleatorio.addEventListener('click', criarDev);
+  btn_gerar_dev_aleatorio.addEventListener('click', criarDevRandom);
 });
 
 btn_fechar_modal.addEventListener('click', (event) => {
@@ -72,7 +115,31 @@ workers_element.addEventListener('click', (event) => {
     }
   })
 
-function criarGte(){
+function criarGte(nome,idade,cargo,atributo){
+    let objGte;
+    let card;
+    
+    objGte = instanciarGerente(nome,idade,cargo,atributo);
+    objGte = normalizeClasses(objGte);
+    card = createNewCard(objGte);
+    cards_element.innerHTML+=(card);
+    fecharModal();
+    card = "";
+}
+
+function criarDev(nome,idade,cargo,atributo){
+  let objDev;
+  let card;
+  
+  objDev = instanciarDesenvolvedor(nome,idade,cargo,atributo);
+  objDev = normalizeClasses(objDev);
+  card = createNewCard(objDev);
+  cards_element.innerHTML+=(card);
+  fecharModal();
+  card = "";
+}
+
+function criarGteRandom(){
     let objGte;
     let card;
     
@@ -84,7 +151,7 @@ function criarGte(){
     card = "";
 }
 
-function criarDev(){
+function criarDevRandom(){
     let objDev;
     let card;
     
@@ -94,7 +161,6 @@ function criarDev(){
     cards_element.innerHTML+=(card);
     fecharModal();
     card = "";
-
 }
 
 function fecharModal(){
